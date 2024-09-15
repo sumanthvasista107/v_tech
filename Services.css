@@ -63,7 +63,7 @@ nav {
     display: block;
     padding: 20px 15px;
     text-decoration: none;
-    font-family: cursive;
+    font-family: Arial, sans-serif;
     color: white;
     text-transform: uppercase;
     font-weight: bold;
@@ -140,7 +140,7 @@ nav {
 .logo-text {
     font-size: 30px; /* Slightly larger for better visibility */
     font-weight: 600; /* Lighter weight for a modern look */
-    font-family: 'Poppins', sans-serif; 
+    font-family: Arial, sans-serif; 
     background: linear-gradient(90deg, #3446eb, #df6122, #4a6ad1); /* Matching colors to the design */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
