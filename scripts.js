@@ -1,3 +1,15 @@
+function toggleMobileMenu(){
+    document.getElementById("menu").classList.toggle
+    ("active");
+    
+    const links = menu.querySelectorAll("a");
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            menu.classList.remove("active");
+        });
+    });
+}
+
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent the default form submission
 
