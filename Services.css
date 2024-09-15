@@ -1,0 +1,506 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Ensure the background is behind the content */
+}
+
+.transparent-logo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    z-index: -1;
+    width: 50%;
+    height: 75%;
+}
+
+/*Same for all pages from Navbar Styles */
+
+header {
+    background-color: black; /* Semi-transparent background */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 20px;
+}
+
+.navbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0;
+}
+
+.navbar a {
+    display: block;
+    padding: 20px 15px;
+    text-decoration: none;
+    font-family: cursive;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease-out;
+}
+
+.navbar a:hover {
+    color: #479dff; /* Enhanced hover color - Light Blue */
+    box-shadow: 0 2px 10px rgba(71, 157, 255, 0.5); /* subtle shadow for 3D effect */
+    transform: translateY(-5px); /* subtle lift */
+}
+
+.navbar a::before, .navbar a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(67,140,236,0) 0%, rgba(67,140,236,1) 50%, rgba(67,140,236,0) 100%);
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.navbar a::before {
+    top: 0;
+}
+
+.navbar a::after {
+    bottom: 0;
+}
+
+.navbar a:hover::before, .navbar a:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+/* Navbar Active Link Styles */
+.navbar a.active, .navbar a:hover {
+    color: #479dff; /* Tomato color */
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on active/hover */
+    font-weight: bold; /* Bolder font for active link */
+    box-shadow: 0 2px 10px rgba(71, 157, 255, 0.2); /* Box shadow for 3D effect */
+}
+
+.navbar a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; /* Position it under the link */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 2px;
+    background-color: #479dff; /* Blue to match hover color */
+    border-radius: 2px;
+}
+
+.navbar a.active::before {
+    display: contents; /* Hide the hover effect bar if it's the active link */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    align-items: center;
+}
+
+.logo-img {
+    height: 10vh; /* Adjust size as needed */
+    width: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-text {
+    font-size: 30px; /* Slightly larger for better visibility */
+    font-weight: 600; /* Lighter weight for a modern look */
+    font-family: 'Poppins', sans-serif; 
+    background: linear-gradient(90deg, #3446eb, #df6122, #4a6ad1); /* Matching colors to the design */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    background-clip: text;
+    padding-left: 10px;
+}
+
+.navbar {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Content Styles */
+.content {
+    padding-top: 100px; /* Height of the navbar */
+    text-align: center; /* Center align the content */
+}
+
+.content h1 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.content p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+/*Same for all pages to Navbar Styles */
+.section-heading {
+    color: rgb(165, 23, 247); /* Set the text color to white */
+    text-align: center; /* Center align the text */
+    margin-top: -40px; /* Adjust the top margin as needed */
+    position: absolute; /* Position the text absolutely */
+    top: calc(50% - 180px); /* Position the text 180px above the center vertically */
+    left: 50%; /* Center the text horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    font-size: 30px; /* Increase font size */
+    font-weight: bold; /* Optionally make it bold */
+    z-index: 1; /* Ensure the text is above the background */
+}
+
+section {
+  height: 100vh;
+  width: 80%;
+  display: grid;
+  place-items: center;
+  margin-left: 100px;
+  margin-top: -100px;
+}
+section::after {
+    content: ""; /* Add content for pseudo-element */
+    position: absolute; /* Position the overlay absolutely */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(126, 99, 245, 0.5); /* Semi-transparent white color */
+    z-index: -1; /* Ensure the overlay is behind other content */
+}
+.row {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+    flex-wrap: wrap; /* Allow the items to wrap onto the next line */
+    margin: 0 20px; /* Negative margin to counteract the margin on .column */
+}
+
+.column {
+    flex: 0 0 calc(33.33% - 30px); /* Adjust the width of each column with some spacing */
+    max-width: calc(33.33% - 20px); /* Maximum width for each column */
+    margin: 15px; /* Add some spacing between columns */
+    height: 300px; /* Set a fixed height for each column */
+    text-align: center;
+    border-color: #333;
+    border-width: 2px;
+}
+.card {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  padding: 2em 1.5em;
+  background: linear-gradient(#ffffff 50%, #5c93eb 50%);
+  background-size: 100% 200%;
+  background-position: 0 2.5%;
+  border-radius: 5px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+  transition: 0.3s;
+  border: 2px solid #070707;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f194c;
+  margin: 1em 0;
+}
+p {
+  color: #575a7b;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+.icon-wrapper {
+  background-color: #5895f8;
+  position: relative;
+  margin: auto;
+  font-size: 30px;
+  height: 2.5em;
+  width: 2.5em;
+  color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: 0.5s;
+}
+.card:hover {
+  background-position: 0 100%;
+}
+.card:hover > .icon-wrapper {
+  background-color: #ffffff;
+  color: #7d8ff7;
+}
+.card:hover > h3 {
+  color: #ffffff;
+}
+.card:hover > p {
+  color: #f0f0f0;
+}
+@media screen and (max-width: 992px) {
+    .column {
+        flex: 0 0 calc(50% - 20px); /* On smaller screens, make each column take 50% width */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .column {
+        flex: 0 0 calc(100% - 20px); /* On even smaller screens, make each column take full width */
+        max-width: calc(100% - 20px);
+        margin-bottom: 20px; /* Add some spacing between rows */
+    }
+}
+
+.read-more-toggle {
+    display: none;
+}
+
+.read-more-btn, .close-btn {
+    padding: 10px 20px;
+    background-color: #479dff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.popup {
+    display: none;
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px; /* Maximum width */
+    max-height: 600px; /* Maximum height */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    border: 2px solid #070707;
+    z-index: 1000; /* Ensures the popup is on top of other content */
+}
+
+.read-more-toggle:checked + .read-more-btn + .popup {
+    display: block;
+}
+
+.popup p {
+    color: #333;
+    text-align: justify;
+}
+
+/* Add these media queries at the end of your CSS */
+
+@media screen and (max-width: 768px) {
+    .popup {
+        width: 90%;
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .popup {
+        width: 80%;
+        max-width: 80%;
+    }
+}
+
+/* Adjustments for the background image */
+body.popup-open {
+    overflow: hidden; /* Prevent scrolling on the body when popup is open */
+}
+
+.popup-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Add these media queries at the end of your CSS */
+
+@media screen and (max-width: 992px) {
+    .column {
+        flex: 0 0 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .column {
+        flex: 0 0 calc(100% - 20px);
+        max-width: calc(100% - 20px);
+        margin-bottom: 20px;
+    }
+  
+    .row {
+        justify-content: center;
+        margin-left: 0;
+    }
+    section {
+        margin-left: 10%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .row {
+        margin-left: 0;
+        content: center;
+    }
+    section {
+        margin-left: 5%;}
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 8px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto; /* Ensures footer is pushed to the bottom */
+}
+
+footer p {
+    margin: 0;
+    font-size: small;
+}
+
+/* Hamburger Menu Icon */
+.menu-icon {
+    display: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: white;
+    padding: 20px;
+}
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 768px) {
+
+    .menu-icon {
+        display: block;
+        
+    }
+
+    .logo-img {
+        height: 10vh; /* Adjust size as needed */
+        width: auto;
+    }
+
+    .logo-text{
+        font-size: 2em;
+    }
+
+    .navbar {
+        display: none;
+        position: fixed;
+        top: -55%;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        background-color: black;
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    .menu-icon:active + .navbar,
+    .menu-icon:focus + .navbar,
+    .navbar:hover {
+        display: flex;
+    }
+
+    .navbar li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar a {
+        padding: 20px 0;
+        font-size: 1.5em;
+    }
+
+    .company-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-heading {
+        margin-top: 30px; /* Adjust the top margin as needed */
+        top: unset; /* Remove absolute positioning */
+        transform: none; /* Remove previous transforms */
+        position: relative;
+        left: 0%;
+    }
+
+    .row {
+        flex-direction: column; /* Stack columns vertically */
+        margin-top: 0px; /* Reset margin for stacking */
+    }
+    
+    .column {
+        flex: 1 0 100%; /* Take full width of the row */
+        max-width: 80%; /* Ensure full width */
+        margin: 20px 0; /* Add space between columns vertically */
+    }
+    
+    section {
+        width: 100%; /* Take full width */
+        margin-left: 0; /* Reset left margin */
+        margin-top: 90px; /* Adjust top margin */
+    }
+    
+    
+}
+
+/* Larger Screens Adjustment */
+@media screen and (min-width: 769px) {
+    .menu-icon {
+        display: none; /* Hide hamburger icon on larger screens */
+    }
+}

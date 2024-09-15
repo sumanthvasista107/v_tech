@@ -1,0 +1,303 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: auto;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure the background is behind the content */
+}
+
+header {
+    background-color: black; /* Semi-transparent background */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 20px;
+}
+
+.navbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0;
+}
+
+.navbar a {
+    display: block;
+    padding: 20px 15px;
+    text-decoration: none;
+    font-family: cursive;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease-out;
+}
+
+.navbar a:hover {
+    color: #479dff; /* Enhanced hover color - Light Blue */
+    box-shadow: 0 2px 10px rgba(71, 157, 255, 0.5); /* subtle shadow for 3D effect */
+    transform: translateY(-5px); /* subtle lift */
+}
+
+.navbar a::before, .navbar a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(67,140,236,0) 0%, rgba(67,140,236,1) 50%, rgba(67,140,236,0) 100%);
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.navbar a::before {
+    top: 0;
+}
+
+.navbar a::after {
+    bottom: 0;
+}
+
+.navbar a:hover::before, .navbar a:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+/* Navbar Active Link Styles */
+.navbar a.active, .navbar a:hover {
+    color: #479dff; /* Tomato color */
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on active/hover */
+    font-weight: bold; /* Bolder font for active link */
+    box-shadow: 0 2px 10px rgba(71, 157, 255, 0.2); /* Box shadow for 3D effect */
+}
+
+.navbar a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; /* Position it under the link */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 2px;
+    background-color: #479dff; /* Blue to match hover color */
+    border-radius: 2px;
+}
+
+.navbar a.active::before {
+    display: contents; /* Hide the hover effect bar if it's the active link */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 10vh; /* Adjust size as needed */
+    width: auto;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.logo-text {
+    font-size: 30px; /* Slightly larger for better visibility */
+    font-weight: 600; /* Lighter weight for a modern look */
+    font-family: 'Poppins', sans-serif; 
+    background: linear-gradient(90deg, #3446eb, #df6122, #4a6ad1); /* Matching colors to the design */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    background-clip: text;
+    padding-left: 10px;
+    
+}
+.navbar {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Content Styles */
+.content {
+    padding-top: 100px; /* Height of the navbar */
+    text-align: right;
+}
+
+.content h1 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.content p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.navbar a.active, .navbar a:hover {
+    color: #479dff; /* Tomato color */
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on active/hover */
+    font-weight: bold; /* Bolder font for active link */
+    box-shadow: 0 2px 10px rgba(71, 157, 255, 0.2); /* Box shadow for 3D effect */
+}
+
+.navbar a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; /* Position it under the link */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 2px;
+    background-color: #479dff; /* Blue to match hover color */
+    border-radius: 2px;
+}
+
+.navbar a.active::before {
+    display: contents; /* Hide the hover effect bar if it's the active link */
+}
+
+/*Same for all pages to Navbar Styles */
+
+
+.container {
+    max-width: 1200px;
+    margin: 5%;
+    padding: 40px;
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-row-gap: 40px;
+    grid-column-gap: 20px;
+    justify-items: center;
+}
+.project {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.project:hover {
+    transform: translateY(-20px);
+}
+.project img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+.project-info {
+    padding: 20px;
+}
+.project-info h3 {
+    margin-top: 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 8px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto; /* Ensures footer is pushed to the bottom */
+}
+
+footer p {
+    margin: 0;
+    font-size: small;
+}
+
+/* Hamburger Menu Icon */
+.menu-icon {
+    display: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: white;
+    padding: 20px;
+}
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 768px) {
+    .container{
+        margin-top: 80px;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .logo-img {
+        height: 10vh; /* Adjust size as needed */
+        width: auto;
+    }
+
+    .logo-text{
+        font-size: 2em;
+    }
+
+    .navbar {
+        display: none;
+        position: fixed;
+        top: -55%;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        background-color: black;
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    .menu-icon:active + .navbar,
+    .menu-icon:focus + .navbar,
+    .navbar:hover {
+        display: flex;
+    }
+
+    .navbar li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar a {
+        padding: 20px 0;
+        font-size: 1.5em;
+    }
+
+    .company-info {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Larger Screens Adjustment */
+@media screen and (min-width: 769px) {
+    .menu-icon {
+        display: none; /* Hide hamburger icon on larger screens */
+    }
+}

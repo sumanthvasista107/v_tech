@@ -1,0 +1,460 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.transparent-logo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    z-index: -1;
+    width: 50%;
+    height: 75%;
+}
+
+header {
+    background-color: black; /* Semi-transparent background */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 20px;
+}
+
+.navbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0;
+}
+
+.navbar a {
+    display: block;
+    padding: 20px 15px;
+    text-decoration: none;
+    font-family: cursive;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease-out;
+}
+
+.navbar a:hover {
+    color: #479dff; /* Enhanced hover color - Light Blue */
+    box-shadow: 0 2px 10px rgba(71, 157, 255, 0.5); /* subtle shadow for 3D effect */
+    transform: translateY(-5px); /* subtle lift */
+}
+
+.navbar a::before, .navbar a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(67,140,236,0) 0%, rgba(67,140,236,1) 50%, rgba(67,140,236,0) 100%);
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.navbar a::before {
+    top: 0;
+}
+
+.navbar a::after {
+    bottom: 0;
+}
+
+.navbar a:hover::before, .navbar a:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+/* Navbar Active Link Styles */
+.navbar a.active, .navbar a:hover {
+    color: #479dff; /* Tomato color */
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on active/hover */
+    font-weight: bold; /* Bolder font for active link */
+    box-shadow: 0 2px 10px rgba(71, 157, 255, 0.2); /* Box shadow for 3D effect */
+}
+
+.navbar a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; /* Position it under the link */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 2px;
+    background-color: #479dff; /* Blue to match hover color */
+    border-radius: 2px;
+}
+
+.navbar a.active::before {
+    display: contents; /* Hide the hover effect bar if it's the active link */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 10vh; /* Adjust size as needed */
+    width: auto;
+}
+
+a {
+    text-decoration: none;
+
+}
+.logo-text {
+    font-size: 30px; /* Slightly larger for better visibility */
+    font-weight: 600; /* Lighter weight for a modern look */
+    font-family: 'Poppins', sans-serif; 
+    background: linear-gradient(90deg, #3446eb, #df6122, #4a6ad1); /* Matching colors to the design */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    background-clip: text;
+    padding-left: 10px;
+}
+
+.navbar {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar a.active, .navbar a:hover {
+    color: #479dff;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(71, 157, 255, 0.2);
+}
+
+.navbar a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 2px;
+    background-color: #479dff;
+    border-radius: 2px;
+}
+
+.navbar a.active::before {
+    display: contents;
+}
+
+/* Targeting hyperlinks within the .info-text class */
+.info-text a {
+    color: black; /* Normal link color */
+    text-decoration: none; /* Remove underline if desired */
+    font-weight: bold; /* Make the links bold if needed */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+    text-align: left;
+}
+
+/* Change color on hover */
+.info-text a:hover {
+    color: #0ad9e0; /* Color when hovered */
+    text-decoration: underline; /* Underline on hover if desired */
+}
+
+.info-text p  {
+    text-align: left;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .navbar li {
+        width: 100%;
+    }
+
+    .navbar a {
+        padding: 10px;
+    }
+}
+
+.container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    overflow: hidden;
+    width: 80%;
+    max-width: 900px;
+    display: flex;
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: calc(100vh - 90px);
+    box-sizing: border-box;
+}
+
+.form-container {
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+.form-container h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #222222;
+}
+
+.form-group input, .form-group textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #8e8d8d;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #007BFF;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+.form-group button {
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 10ms;
+}
+
+.form-group button:hover {
+    background: #000000;
+}
+
+.info-container {
+    background: #007BFF;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+.call-img {
+    width: 70%;
+    height: auto;
+    margin-bottom: 10px;
+    margin-top: -40px;
+}
+
+.info-container h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #fff;
+}
+
+.info-container p {
+    margin: 10px 0;
+    color: #fff;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #d96d32;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+    transition: transform 0.1s;
+}
+
+.social-icons a:hover i {
+    transform: scale(1.5);
+    transition: all 100ms ease-in;
+    color: crimson;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .info-container, .form-container {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 8px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto; /* Ensures footer is pushed to the bottom */
+}
+
+footer p {
+    margin: 0;
+    font-size: small;
+}
+
+/* Hamburger Menu Icon */
+.menu-icon {
+    display: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: white;
+    padding: 20px;
+}
+
+
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 70px; /* Ensure enough padding above main content */
+    }
+
+    .logo-img {
+        height: 10vh; /* Adjust size as needed */
+        width: auto;
+    }
+
+    .logo-text{
+        font-size: 2em;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+        position: fixed;
+        top: -53%;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        background-color: black;
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    .menu-icon:active + .navbar,
+    .menu-icon:focus + .navbar,
+    .navbar:hover {
+        display: flex;
+    }
+
+    .navbar li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar a {
+        padding: 20px 0;
+        font-size: 1.5em;
+    }
+
+    .company-info {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+#thankYouModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    text-align: center;
+    z-index: 1000;
+}
+
+#thankYouModal p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+#closeModal {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Larger Screens Adjustment */
+@media screen and (min-width: 769px) {
+    .menu-icon {
+        display: none; /* Hide hamburger icon on larger screens */
+    }
+}
