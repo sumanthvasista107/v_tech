@@ -17,7 +17,6 @@ body::before {
     z-index: -1;
 }
 
-
 .transparent-logo {
     position: fixed;
     top: 50%;
@@ -28,8 +27,6 @@ body::before {
     width: 50%;
     height: 75%;
 }
-
-
 
 header {
     background-color: black;
@@ -214,8 +211,6 @@ footer p {
     margin: 0;
     font-size: small;
 }
-
-
 
 .slideshow-container {
     position: fixed;
