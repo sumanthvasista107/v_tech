@@ -1,3 +1,18 @@
+:root{
+    --base : #555;
+    --base-100: #f1f1f1;
+    --base-400: #555;
+    --base-800: #000;
+    --yellow: #ffda4b;
+    --yellow-100: #fae57b;
+    --yellow-400: #ffda4b;
+    --yellow-800: #8b6f00;
+    --blue: #0a61ae;
+    --blue-100: #e2f8ff;
+    --blue-400: #61dafb;
+    --blue-800: #0a61ae;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -34,7 +49,7 @@ body::before {
 /*Same for all pages from Navbar Styles */
 
 header {
-    background-color: black; /* Semi-transparent background */
+    background-color: var(--base-100); /* Semi-transparent background */
     position: fixed;
     width: 100%;
     top: 0;
@@ -64,15 +79,15 @@ nav {
     padding: 20px 15px;
     text-decoration: none;
     font-family: Arial, sans-serif;
-    color: white;
+    color: var(--base-800);
     text-transform: uppercase;
     font-weight: bold;
     transition: all 0.3s ease-out;
 }
 
 .navbar a:hover {
-    color: #479dff; /* Enhanced hover color - Light Blue */
-    box-shadow: 0 2px 10px rgba(71, 157, 255, 0.5); /* subtle shadow for 3D effect */
+    color: #a0c7f5;
+    box-shadow: 0 2px 10px rgba(222, 234, 248, 0.5);
     transform: translateY(-5px); /* subtle lift */
 }
 
@@ -133,8 +148,7 @@ nav {
 .logo-img {
     height: 10vh; /* Adjust size as needed */
     width: auto;
-    align-items: center;
-    justify-content: center;
+    border-radius: 50%;
 }
 
 .logo-text {
@@ -396,18 +410,19 @@ body.popup-open {
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--base-400);
+    color: white;
     text-align: center;
-    padding: 8px 0;
+    padding: 6px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
-    margin-top: auto; /* Ensures footer is pushed to the bottom */
+    margin-top: auto;
 }
 
 footer p {
     margin: 0;
+    color: white;
     font-size: small;
 }
 
@@ -416,7 +431,7 @@ footer p {
     display: none;
     font-size: 1.8em;
     cursor: pointer;
-    color: white;
+    color: var(--base-800);
     padding: 20px;
 }
 
@@ -444,7 +459,7 @@ footer p {
         right: 0;
         height: 100vh;
         width: 70%;
-        background-color: black;
+        background-color: var(--base-100);
         flex-direction: column;
         z-index: 1000;
     }
